@@ -1,0 +1,56 @@
+body{
+    background: linear-gradient(rgb(4, 31, 49), rgb(14, 123, 196));
+    height: 100vh;
+    
+
+
+}
+
+div{
+    float: left; /* Para que las casillas se pongan en fila hacia la izquierda. */
+}
+
+div.tablero{
+    text-align: center; /* Centrar  las fichas en el centro de la casilla (cuadrado del ajedrez) */ 
+    font-size:65px; /* Tamaño de las fichas de ajedrez */
+    user-select: none; /* Para que no se puedan seleccionar las fichas con el cursor */
+    margin-left: 255px; 
+    
+}
+
+
+div.tablero div div{ /* Me estoy refiriendo al segundo div que está dentro de la clase tabla */
+    width: 100px;
+    height: 80px;
+}
+
+/*  
+ood --> impar
+even --> par
+
+            |   Este div    | |     Este div    |
+            |  es el padre   | |    es el hijo   |
+*/
+div.tablero div:nth-child(odd) div:nth-child(odd){ /* Le estoy diciendo que todos los hijos que sean impares
+                                                    pero que sus padres también sean impares, será del color del background de abajo */ 
+    background-color: rgb(146, 255, 255);
+
+}
+
+div.tablero div:nth-child(odd) div:nth-child(even){ /* Todos los hijos que sean pares pero que sus padres sean impares será
+                                                        del color de más abajo */
+    background-color: rgb(0, 58, 58);
+    
+}
+
+div.tablero div:nth-child(even) div:nth-child(even){ /* Todos los hijos que sean par pero que sus padres también seran pares,
+                                                        serán del color del background de más abajo */
+    background-color:  rgb(146, 255, 255);
+    
+}
+
+div.tablero div:nth-child(even) div:nth-child(odd){ /* Todos los hijos que sean impares y que sus padres sean pares,
+                                                       adopten el color de la línea 56. */ 
+    background-color: rgb(0, 58, 58);
+    
+}
